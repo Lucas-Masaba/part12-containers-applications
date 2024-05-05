@@ -1,4 +1,7 @@
 FROM node:20
 WORKDIR /usr/src/app
 COPY . .
-CMD DEBUG=part12-containers-applications:* npm start
+RUN npm ci
+ENV DEBUG=part12-containers-applications:*
+USER node
+CMD npm start
